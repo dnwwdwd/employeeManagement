@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.godfrey.mapper.LogMapper">
+
+    <resultMap id="LogDTO" type="com.godfrey.dto.LogDTO">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="roleId" jdbcType="INTEGER" property="roleId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="user_name"/>
+        <result column="operation" jdbcType="VARCHAR" property="operation"/>
+    </resultMap>
+
+    <insert id="insertLogOperation" parameterType="Log">
+        insert into log(roleId, user_name, operation) values(#{roleId}, #{user_name} , #{operation})
+    </insert>
+
+    <select id="selectAllLogOperations" resultMap="LogDTO">
+        select * from log
+    </select>
+
+</mapper>

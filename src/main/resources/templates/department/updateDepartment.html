@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Tdeplate for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this tdeplate -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="~{common/commons::topbar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{common/commons::sidebar(active='list.html')}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>修改部门信息</h2>
+            <form th:action="@{/updateDepartment}" method="post">
+                <input name="depId" type="hidden" class="form-control" th:value="${dep.depId}">
+                <div class="form-group">
+                    <label>旧的部门序号</label>
+                    <input name="depId" type="text" class="form-control" th:value="${dep.depId}">
+                </div>
+                <div class="form-group">
+                    <label>新的部门序号</label>
+                    <input name="newDepId" type="text" class="form-control" th:value="${dep.newDepId}">
+                </div>
+                <div class="form-group">
+                    <label>部门名称</label>
+                    <input name="department_name" type="text" class="form-control" th:value="${dep.department_name}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">修改</button>
+            </form>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" th:src="@{/js/jquery-3.2.1.slim.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<!--		日期组件-->
+<script type="text/javascript" th:src="@{/laydate/laydate.js}"></script> <!-- 改成你的路径 -->
+<script>
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#dateFormat',
+        trigger:'click'//指定元素
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.godfrey.mapper.DepartmentMapper">
+
+    <resultMap id="DepartmentDTO" type="com.godfrey.dto.DepartmentDTO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="depId" jdbcType="BIGINT" property="depId"/>
+        <result column="department_name" jdbcType="VARCHAR" property="department_name"/>
+    </resultMap>
+
+    <select id="selectAllDepartment" resultMap="DepartmentDTO">
+        select * from department
+    </select>
+
+    <select id="selectDepartmentById" resultMap="DepartmentDTO">
+        select * from department where depId = #{depId}
+    </select>
+
+    <insert id="addDepartment" parameterType="Department">
+        insert into department(depId, department_name) values(#{depId}, #{department_name})
+    </insert>
+
+    <update id="updateDepartment" parameterType="Department">
+        update department set depId = #{newDepId}, department_name = #{department_name} where depId = #{depId}
+    </update>
+
+    <delete id="deleteDepartment" parameterType="Department">
+        delete from department where depId = #{depId}
+    </delete>
+</mapper>

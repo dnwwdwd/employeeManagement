@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/dbtest2?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  thymeleaf:
+    cache: false
+  messages:
+    basename: i18n.login
+server:
+  port: 8081
+
+mybatis:
+  type-aliases-package: com.godfrey.pojo
+  mapper-locations: classpath:com.godfrey.mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
