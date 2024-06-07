@@ -114,6 +114,7 @@ public class UserController {
         model.addAttribute("employees",employeeDTOS);
         return "user/addUser.html";
     }
+
     @PostMapping("/addUser")
     public String addUser(User user, HttpSession session){
         int i = userService.addUser(user);

@@ -40,6 +40,6 @@
     </delete>
     
     <insert id="addUser" parameterType="User">
-        insert into user(id, user_name, password, roleId, empId) values(#{id}, #{user_name}, #{password}, 0, #{empId})
+        insert into user(user_name, password, roleId, empId) values(#{user_name}, #{password}, 0, #{empId})
     </insert>
 </mapper>
