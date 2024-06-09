@@ -535,7 +535,7 @@ public interface LogMapper {
 
 8. 编写接口对应的Mapper.xml文件：LogMapper.xml
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
