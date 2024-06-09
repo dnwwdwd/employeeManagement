@@ -59,6 +59,7 @@ SpringBoot整合CRUD实现员工管理案例，将Mybatis整合到原项目中�
 - 需要熟练掌握MySQL数据库，SpringBoot及MyBatis知识，简单的前端知识；
 
 #### 数据库环境
+> 我将所有数据库表的 sql 语句放在了 db/springboot.sql 文件下了，各位拉取代码后连接 MySQL 后直接执行即可，就无需复制了。
 
 创建案例所使用的数据库
 
